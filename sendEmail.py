@@ -8,7 +8,7 @@ def sendEmail(fileName):
     subject = "Backup Ouro Moderno"
     body = f"backup do banco de dados da Ouro Modernos"
     sender_email = "devribeiroanderson@gmail.com"
-    recipients_email = ["devribeiroanderson@gmail.com"]
+    recipients_email = ["gislenefernanda09@hotmail.com", "johnny.renan@gmail.com", "microjoypirituba@gmail.com"]
     sender_password = "xtuo cdmk qnkr ecis"
     smtp_server = 'smtp.gmail.com'
     smtp_port = 465
