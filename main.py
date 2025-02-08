@@ -6,8 +6,14 @@ from time import sleep
 from datetime import datetime
 import schedule
 
+
+def initBackup():
+    makeBackupOrNot()
+    file = replaceNameFileBackup()
+    sendEmail(file)
+
 # FUNÇÃO QUE VERIFICA A HORA DO DIA E DETERMINA SE SERÁ FEITO O BACKUP OU NÃO
-def makeBackOrNotMake():
+def makeBackupOrNot():
     # RECEBENDO A HORA ATUAL
     date = datetime.now()
 
@@ -27,20 +33,8 @@ def makeBackOrNotMake():
     if hora > 16:
         makeBackup()
 
-
-# FUNÇÃO QUE COPIA O ARQUIVO DE BACKUP PARA A RAIZ DA APLICAÇÃO
-def copyFileBackup():
-    makeBackOrNotMake()
-    return replaceNameFileBackup()
-
-# FUNÇÃO QUE DISPARA O ENVIO DO EMAIL
-def sendEmailBackup():
-    file = copyFileBackup()
-    sendEmail(file)
-
-
-schedule.every().day.at("09:00").do(sendEmailBackup)
-schedule.every().day.at("17:50").do(sendEmailBackup)
+schedule.every().day.at("09:00").do(initBackup)
+schedule.every().day.at("17:52").do(initBackup)
 
 while True:
     schedule.run_pending()

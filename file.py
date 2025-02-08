@@ -16,7 +16,7 @@ def copyFile(fileBackup):
     origem = f"C:/wamp/www/_bkp/{fileBackup}"
 
     # Novo destino do arquivo
-    destino = "C:/Users/ander/Documents/sistem-backup"
+    destino = "C:/Users/ander/Documents/system-backup-microjoy"
 
     # Movendo o arquivo
     shutil.copy(origem, destino)
