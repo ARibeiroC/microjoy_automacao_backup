@@ -8,31 +8,16 @@ import schedule
 
 
 def initBackup():
-    makeBackupOrNot()
+    # FAZENDO O BACKUP DO SISTEMA
+    makeBackup()
+
+    # PEGANDO O NOME DO ARQUIVO DO BACKUP
     file = replaceNameFileBackup()
+
+    # ENVIANDO O EMAIL COM ANEXO DO ARQUIVO DE BACKUP
     sendEmail(file)
 
-# FUNÇÃO QUE VERIFICA A HORA DO DIA E DETERMINA SE SERÁ FEITO O BACKUP OU NÃO
-def makeBackupOrNot():
-    # RECEBENDO A HORA ATUAL
-    date = datetime.now()
-
-    # CONVERTENDO EM STRING
-    date= str(date)
-
-    # DIVIDINDO A DATA DA HORA
-    date = date.split(" ")
-
-    # PEGANDO A HORA COMPLETA E RETIRANDO APENAS O VALOR DA HORA
-    date = date[1].split(':')
-
-    # CONVERTENDO O VALOR DA HORA EM INTEIRO
-    hora = int(date[0])
-
-    # VERIFICANDO SE A HORA ATUAL É MAIOR QUE 9
-    if hora > 16:
-        makeBackup()
-
+# AGENDAMENTO PARA INICIALIZAÇÃO DO BACKUP AS 9H DA MANHA E AS 10 PRAS 6H DA NOITE
 schedule.every().day.at("09:00").do(initBackup)
 schedule.every().day.at("17:52").do(initBackup)
 

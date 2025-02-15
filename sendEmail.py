@@ -35,6 +35,6 @@ def sendEmail(fileName):
 
 
 if __name__ == "__main__":
-    sendEmail("backup-11-01-2025_10-02-32.zip")
+    sendEmail("backup-08-02-2025_18-53-20.zip")
 
 
